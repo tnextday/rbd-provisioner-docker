@@ -14,8 +14,8 @@
 
 FROM golang AS build
 
-RUN mkdir -p github.com/kubernetes-incubator \
-  && cd github.com/kubernetes-incubator \
+RUN mkdir -p /go/src/github.com/kubernetes-incubator \
+  && cd /go/src/github.com/kubernetes-incubator \
   && git clone https://github.com/kubernetes-incubator/external-storage.git \
   && cd /go/src/github.com/kubernetes-incubator/external-storage/ceph/rbd/cmd/rbd-provisioner \
   && go build -a -ldflags '-extldflags "-static"' -o /go/bin/rbd-provisioner main.go
